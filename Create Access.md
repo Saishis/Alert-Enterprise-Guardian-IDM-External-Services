@@ -1,0 +1,115 @@
+### Create Access
+Creates a new access record in Guardian IDM, defining permissions for a user or a group.
+
+API Call:
+POST/api/access/save
+
+**Request Example**
+POST /access/save HTTP/1.1
+Host: api
+Content-Length: 234
+
+{
+"criticality": "HIGH",
+"description": "{{AccessName}}",
+"highRisk": true,
+"id": "",
+"isAlertAuthorization": true,
+"sourceId": "1001",
+"systemId": 20,
+"text": "{{AccessName}}",
+"type": "{{accessType}}",
+"userGroup": true
+}
+
+|---------|--------|---------------|
+|**Field**|**Type**|**Description**|
+|---------|--------|---------------|
+|criticality|String|Importance level (HIGH, MEDIUM, LOW).|
+|---------|--------|---------------|
+|description|String|Description of the access.|
+|---------|--------|---------------|
+|highRisk|Boolean|Marks access as high risk (true/false).|
+|---------|--------|---------------|
+|id|String|Leave empty for new access; used for updates.|
+|---------|--------|---------------|
+|isAlertAuthorization|Boolean|Indicates if Alert authorization is required.|
+|---------|--------|---------------|
+|sourceId|String|Identifier for source system/application.|
+|---------|--------|---------------|
+|systemId|Integer|ID of the system linked to the access.|
+|---------|--------|---------------|
+|text|String|Display name of the access.|
+|---------|--------|---------------|
+|type|String|Access type code (e.g., AC-001 for physical, AC-002 for application).|
+|---------|--------|---------------|
+|userGroup|Boolean|Indicates if access applies to a group.|
+|---------|--------|---------------|
+
+**Response Example**
+{
+  "success": true,
+  "messages": [
+    {
+      "messageType": "INFO",
+      "messageCode": "AE-INF110001",
+      "messageDisplayText": "'Access ACS-013141 saved successfully'",
+      "priority": 0,
+      "valuesMap": {
+        "EntityName": "Access",
+        "id": "ACS-013141"
+      }
+    }
+  ],
+  "data": {
+    "id": 4081500016430990,
+    "id_str": "4081500016430990",
+    "isReplaceEntityWhenFound": false,
+    "intStatus": 0,
+    "createdBy": 1,
+    "createdOn": "2022-11-23T10:11:34.874+0000",
+    "changedBy": 1,
+    "changedOn": "2022-11-23T10:11:34.874+0000",
+    "extId": "ACS-013141",
+    "text": "TestAccess471368",
+    "description": "TestAccess471368",
+    "type": "AC-001",
+    "sourceId": "1001",
+    "criticality": "HIGH",
+    "highRisk": true,
+    "systemId": 20,
+    "isAlertAuthorization": true,
+    "userGroup": true
+  },
+  "numberOfElements": 0,
+  "totalPages": 0,
+  "totalElements": 0,
+  "pageNumber": 0,
+  "pageSize": 0
+}
+
+|---------|--------|---------------|
+|Field|	Type|Description|
+|---------|--------|---------------|
+|success|Boolean|Operation success status.|
+|---------|--------|---------------|
+|messages|Array|Informational or error messages.|
+|---------|--------|---------------|
+|data.id|Integer|Internal numeric ID.|
+|---------|--------|---------------|
+|data.extId|String|External identifier (e.g., ACS-013141).|
+|---------|--------|---------------|
+|data.text|String|Access name.|
+|---------|--------|---------------|
+|data.description|String|Access description.|
+|---------|--------|---------------|
+|data.type|String|Access type code.|
+|---------|--------|---------------|
+|data.systemId|Integer|Linked system ID.|
+|---------|--------|---------------|
+|data.criticality|String|Risk classification.|
+|---------|--------|---------------|
+|data.highRisk|Boolean|Risk flag.|
+|---------|--------|---------------|
+|createdOn/changedOn|DateTime|Timestamps for creation and modification.|
+|---------|--------|---------------|

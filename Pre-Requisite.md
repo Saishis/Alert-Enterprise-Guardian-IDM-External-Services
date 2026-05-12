@@ -1,0 +1,22 @@
+## Pre-requisite
+To access Guardian IDM and its APIs, administrators and integrators must:
+- Generate access token/Refresh access token for authentication:
+|**API Function**|**Endpoint**|
+|------------|-------------------|
+|Generate an access token|POST/api/auth/token?grant_type=password|
+|Refresh an access token|POST/api/auth/token?grant_type=refresh_token&refresh_token={{refresh_token}}|
+
+- Save identity in Guardian IDM and the external application to give correct identity attributes, accesses, and systems according to the pre-defined rules:
+|**API Function**|**Endpoint**|
+|------------|-------------------|
+|Create Identity|POST/api/identity/external/save|
+
+- Add image to the profile in Guardian IDM and external application:
+|**API Function**|**Endpoint**|
+|------------|-------------------|
+|Add Image|POST/api/identity/external/updateImage|
+
+- Activate identity of the profile:
+|**API Function**|**Endpoint**|
+|------------|-------------------|
+|Activate Identity|POST/api/identity/external/activate|

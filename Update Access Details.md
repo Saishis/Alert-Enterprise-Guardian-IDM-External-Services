@@ -1,0 +1,115 @@
+### Update Access Details
+Updates an existing access record.
+
+API Call:
+POST/api/access/save
+
+**Request Example**
+POST /api/access/save HTTP/1.1
+Host: 
+Content-Length: 162
+
+{
+    "id": "{{accessId}}",
+    "text": "{{accessNameUpdated}}",
+    "description": "{{accessNameUpdated}}",
+    "sourceId":"2002",
+    "highRisk":false
+
+}
+
+| --- | --- | --- |
+|**Field**|**Type**|**Description**|
+| --- | --- | --- |
+| id | String | Existing access ID. |
+| --- | --- | --- |
+| text | String | Updated access name. |
+| --- | --- | --- |
+| description | String | Updated description. |
+| --- | --- | --- |
+| sourceId | String | Updated source system ID. |
+| --- | --- | --- |
+| highRisk | Boolean | Updated risk flag. |
+| --- | --- | --- |
+
+**Response Example**
+{
+  "success": true,
+  "messages": [
+    {
+      "messageType": "INFO",
+      "messageCode": "AE-INF110001",
+      "messageDisplayText": "'Access ACS-013141 saved successfully'",
+      "priority": 0,
+      "valuesMap": {
+        "EntityName": "Access",
+        "id": "ACS-013141"
+      }
+    }
+  ],
+  "data": {
+    "id": 4081500016430990,
+    "id_str": "4081500016430990",
+    "isReplaceEntityWhenFound": false,
+    "intStatus": 0,
+    "createdBy": 1,
+    "createdOn": "2022-11-23T10:11:34.874+0000",
+    "changedBy": 1,
+    "changedOn": "2022-11-23T10:48:30.460+0000",
+    "extId": "ACS-013141",
+    "text": "UpdatedName",
+    "description": "UpdatedName",
+    "type": "AC-001",
+    "accessType": {
+      "id": 2,
+      "isReplaceEntityWhenFound": false,
+      "intStatus": 0,
+      "extId": "AC-001",
+      "text": "Physical System",
+      "description": "Access for Physical System",
+      "icon": "/resources/shared/images/icons/accessType/physys.svg"
+    },
+    "sourceId": "2002",
+    "criticality": "HIGH",
+    "highRisk": false,
+    "system": {
+      "id": 20,
+      "isReplaceEntityWhenFound": false,
+      "intStatus": 0,
+      "createdBy": 1,
+      "createdOn": "2020-09-21T17:29:53.736+0000",
+      "changedBy": 1,
+      "changedOn": "2022-11-22T10:15:24.255+0000",
+      "extId": "CCMAS-LAB",
+      "text": "CCMAS-LAB",
+      "description": "CCURE MAS - LAB",
+      "type": "CCU-001",
+      "systemType": {
+        "id": 20,
+        "isReplaceEntityWhenFound": false,
+        "intStatus": 0,
+        "createdBy": 1,
+        "createdOn": "2020-12-10T05:52:25.890+0000",
+        "changedBy": 1,
+        "changedOn": "2021-04-13T01:48:59.828+0000",
+        "extId": "CCU-001",
+        "text": "CCURE 9000 ",
+        "description": "System Type for CCURE9000",
+        "category": "PHYSICALSYSTEM",
+        "icon": "3248119136501229",
+        "masterIdentityIdisSourceId": false
+      },
+      "isAuthenticationSystem": true
+    },
+    "systemId": 20,
+    "isAlertAuthorization": true,
+    "userGroup": true
+  },
+  "numberOfElements": 0,
+  "totalPages": 0,
+  "totalElements": 0,
+  "pageNumber": 0,
+  "pageSize": 0
+}
+
+Parameters are same as response parameters of **Create Access**.
